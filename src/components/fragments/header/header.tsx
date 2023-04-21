@@ -16,14 +16,11 @@ const Header = (): JSX.Element => {
     <header className={styles.header}>
       <div className={styles.themeButton}>
         <Button
-          onClick={() => {
-            console.log("toggle");
-            setTheme(currentTheme === "light" ? "dark" : "light");
-          }}
+          onClick={() => setTheme(currentTheme === "light" ? "dark" : "light")}
         >
           <div className={styles.buttonContainer}>
             <ToggleButtonIcon className={styles.icon} />
-            Toggle to {currentTheme === "light" ? "Dark" : "Light"}
+            Toggle to {currentTheme === "light" ? "Dark" : "Light"} theme
           </div>
         </Button>
       </div>
