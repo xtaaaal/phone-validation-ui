@@ -12,13 +12,13 @@ Phone validator web ui by Crystal Hon<br>
 
 ### Coding Style
 
--   [ESLint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ### Dev tools
 
--   [TypeScript](https://www.typescriptlang.org/)
--   [Commit lint](https://github.com/conventional-changelog/commitlint)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Commit lint](https://github.com/conventional-changelog/commitlint)
 
 ## Usage
 
@@ -57,7 +57,7 @@ In order for it to work inside `module.css` files you must leverage to `:global`
 
 ```css
 :global(.dark) .title {
-	@apply text-white;
+  @apply text-white;
 }
 ```
 
