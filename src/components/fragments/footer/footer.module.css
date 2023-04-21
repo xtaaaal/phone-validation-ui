@@ -5,3 +5,6 @@
 :global(.dark) .link {
   @apply text-white;
 }
+.license {
+  @apply text-xs text-gray-700;
+}

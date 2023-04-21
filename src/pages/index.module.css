@@ -1,15 +1,32 @@
 .form {
-	@apply max-w-screen-lg xl:max-w-screen-xl mx-auto;
+  @apply max-w-screen-lg xl:max-w-screen-xl mx-auto;
 }
 
 .formInner {
-	@apply sm:flex sm:space-x-4 space-y-4 sm:space-y-0 items-center;
+  @apply sm:flex sm:space-x-4 space-y-4 sm:space-y-0 items-center;
 }
 
 .histories {
-	@apply max-w-screen-lg xl:max-w-screen-xl mx-auto pt-16 grid grid-cols-12 gap-4;
+  @apply max-w-screen-lg xl:max-w-screen-xl mx-auto pt-16 grid grid-cols-12 gap-4;
 }
 
 .history {
-	@apply col-span-6 sm:col-span-4;
+  @apply col-span-6 sm:col-span-4;
+}
+
+.title {
+  @apply text-center text-6xl lg:text-7xl leading-none font-extrabold tracking-tight mb-8 sm:mb-10 text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-blue-800;
+}
+
+.description {
+  @apply text-center w-full text-lg font-medium mb-10 sm:mb-11;
+}
+.container {
+  @apply w-full max-w-7xl xl:max-w-screen-xl mx-auto p-16 flex justify-between items-center;
+}
+.container div {
+  @apply w-1/2;
+}
+.kvImg {
+  @apply w-full;
 }

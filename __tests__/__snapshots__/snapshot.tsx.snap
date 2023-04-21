@@ -4,7 +4,25 @@ exports[`renders homepage unchanged 1`] = `
 [
   <section
     className="form"
-  />,
+  >
+    <h1
+      className="title"
+    >
+      Phone number validator
+    </h1>
+    <p
+      className="description"
+    >
+      Enter your phone number below to verify
+    </p>
+    <div
+      className="container"
+    >
+      <div>
+        Next image stub
+      </div>
+    </div>
+  </section>,
   <section
     className="histories"
   />,

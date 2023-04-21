@@ -17,6 +17,8 @@
     "incremental": true,
     "paths": {
       "@/components/*": ["src/components/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/helpers/*": ["src/helpers/*"],
       "@/hooks/*": ["src/hooks/*"]
     }
   },
