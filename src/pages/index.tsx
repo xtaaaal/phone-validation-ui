@@ -5,8 +5,18 @@ import Image from "next/image";
 import kvImg from "@/assets/images/verified-pana.png";
 
 import styles from "./index.module.css";
+import config from "@/configs/index";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
+
+const validationSchema = yup.object().shape({
+  areaCode: yup.string().required("Country code required"),
+  phoneNumber: yup.string().required("Phone number required"),
+});
 
 const Home: NextPage = () => {
+  const { MOBILE_AREA } = config;
+
   return (
     <>
       <Head>
@@ -31,6 +41,47 @@ const Home: NextPage = () => {
               width={500}
               height={500}
             />
+          </div>
+          <div>
+            <Formik
+              initialValues={{ areaCode: "+852", phoneNumber: "" }}
+              validationSchema={validationSchema}
+              onSubmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                  console.log(JSON.stringify(values, null, 2));
+                  setSubmitting(false);
+                }, 400);
+              }}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Field as="select" name="areaCode" className={styles.select}>
+                    {MOBILE_AREA.map((val) => {
+                      return (
+                        <option key={`code-${val.country}`} value={val.code}>
+                          {/* <ReactCountryFlag
+													className="emojiFlag"
+													countryCode={val.country}
+													style={{
+														fontSize: '1em',
+														lineHeight: '1em',
+													}}
+													aria-label={val.country}
+												/> */}
+                          {val.code}
+                        </option>
+                      );
+                    })}
+                  </Field>
+                  <ErrorMessage name="areaCode" component="div" />
+                  <Field type="tel" name="phoneNumber" />
+                  <ErrorMessage name="phoneNumber" component="div" />
+                  <button type="submit" disabled={isSubmitting}>
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </section>

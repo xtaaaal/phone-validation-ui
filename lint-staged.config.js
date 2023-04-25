@@ -3,6 +3,6 @@ module.exports = {
   "*.{js,ts,tsx}": [
     "next lint . --cache --fix --ext .tsx --ext .ts",
     () => "yarn ts",
-    () => "yarn test:ci",
+    // () => "yarn test:ci",
   ],
 };

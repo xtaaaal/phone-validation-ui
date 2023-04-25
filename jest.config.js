@@ -11,6 +11,7 @@ module.exports = {
     "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$": `<rootDir>/__mocks__/file-mock.js`,
     "^@/components/(.*)$": "<rootDir>src/components/$1",
     "^@/hooks/(.*)$": "<rootDir>src/hooks/$1",
+    "^@/configs/(.*)$": "<rootDir>src/config/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],

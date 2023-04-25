@@ -30,3 +30,6 @@
 .kvImg {
   @apply w-full;
 }
+.select {
+  @apply text-black;
+}

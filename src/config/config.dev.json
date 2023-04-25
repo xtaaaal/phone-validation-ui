@@ -1,0 +1,64 @@
+{
+  "MOBILE_AREA": [
+    {
+      "code": "+852",
+      "country": "HK"
+    },
+    {
+      "code": "+86",
+      "country": "CN"
+    },
+    {
+      "code": "+853",
+      "country": "MO"
+    },
+    {
+      "code": "+886",
+      "country": "TW"
+    },
+    {
+      "code": "+60",
+      "country": "MY"
+    },
+    {
+      "code": "+65",
+      "country": "SG"
+    },
+    {
+      "code": "+1",
+      "country": "US"
+    },
+    {
+      "code": "+66",
+      "country": "TH"
+    },
+    {
+      "code": "+82",
+      "country": "KR"
+    },
+    {
+      "code": "+61",
+      "country": "AU"
+    },
+    {
+      "code": "+64",
+      "country": "NZ"
+    },
+    {
+      "code": "+63",
+      "country": "PH"
+    },
+    {
+      "code": "+52",
+      "country": "MX"
+    },
+    {
+      "code": "+49",
+      "country": "DE"
+    },
+    {
+      "code": "+7",
+      "country": "KZ"
+    }
+  ]
+}
