@@ -8,6 +8,7 @@ import styles from "./index.module.css";
 import config from "@/configs/index";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
+import { handleIsValidPhone } from "@/functions/data-fetching";
 
 const validationSchema = yup.object().shape({
   areaCode: yup.string().required("Country code required"),
@@ -49,6 +50,7 @@ const Home: NextPage = () => {
               onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                   console.log(JSON.stringify(values, null, 2));
+                  handleIsValidPhone(values);
                   setSubmitting(false);
                 }, 400);
               }}
