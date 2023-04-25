@@ -9,21 +9,6 @@
   },
   "author": "Crystal Hon <xtaaaal@gmail.com>",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "next",
-    "nextjs",
-    "typescript",
-    "jest",
-    "tailwind",
-    "template",
-    "starter",
-    "css-modules",
-    "eslint",
-    "prettier",
-    "husky",
-    "commit-lint"
-  ],
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -34,7 +19,7 @@
     "yarn": ">=1.22.5"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

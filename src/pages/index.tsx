@@ -55,7 +55,7 @@ const Home: NextPage = () => {
             >
               {({ isSubmitting }) => (
                 <Form>
-                  <Field as="select" name="areaCode" className={styles.select}>
+                  <Field as="select" name="areaCode" className={styles.input}>
                     {MOBILE_AREA.map((val) => {
                       return (
                         <option key={`code-${val.country}`} value={val.code}>
@@ -73,12 +73,30 @@ const Home: NextPage = () => {
                       );
                     })}
                   </Field>
-                  <ErrorMessage name="areaCode" component="div" />
-                  <Field type="tel" name="phoneNumber" />
-                  <ErrorMessage name="phoneNumber" component="div" />
-                  <button type="submit" disabled={isSubmitting}>
-                    Submit
-                  </button>
+                  <ErrorMessage
+                    name="areaCode"
+                    component="div"
+                    className={styles.errorMsg}
+                  />
+                  <Field
+                    type="tel"
+                    name="phoneNumber"
+                    className={styles.input}
+                  />
+                  <ErrorMessage
+                    name="phoneNumber"
+                    component="div"
+                    className={styles.errorMsg}
+                  />
+                  <div className={styles.buttonContainer}>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={styles.button}
+                    >
+                      Submit
+                    </button>
+                  </div>
                 </Form>
               )}
             </Formik>
