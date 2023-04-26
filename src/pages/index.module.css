@@ -22,10 +22,10 @@
   @apply text-center w-full text-lg font-medium mb-10 sm:mb-11;
 }
 .container {
-  @apply w-full max-w-7xl xl:max-w-screen-xl mx-auto p-16 flex justify-between items-center flex-wrap;
+  @apply w-full max-w-7xl xl:max-w-screen-xl mx-auto lg:p-16 p-8 flex lg:justify-between items-center flex-wrap justify-center;
 }
-.container div {
-  @apply w-1/2 min-w-[400px] mb-2;
+.container > div {
+  @apply lg:w-1/2 w-full min-w-[400px] mb-2 flex lg:justify-around justify-center;
 }
 .kvImg {
   @apply w-full;

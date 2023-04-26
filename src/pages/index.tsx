@@ -11,8 +11,8 @@ import * as yup from "yup";
 import { handleIsValidPhone } from "@/functions/data-fetching";
 
 const validationSchema = yup.object().shape({
-  areaCode: yup.string().required("Country code required"),
-  phoneNumber: yup.string().required("Phone number required"),
+  areaCode: yup.string().required("Please select country code"),
+  phoneNumber: yup.string().required("Please enter phone number"),
 });
 
 const Home: NextPage = () => {
@@ -56,12 +56,16 @@ const Home: NextPage = () => {
               }}
             >
               {({ isSubmitting }) => (
-                <Form>
-                  <Field as="select" name="areaCode" className={styles.input}>
-                    {MOBILE_AREA.map((val) => {
-                      return (
-                        <option key={`code-${val.country}`} value={val.code}>
-                          {/* <ReactCountryFlag
+                <Form className={styles.formContainer}>
+                  <div className={styles.label}>
+                    <label>Phone number</label>
+                  </div>
+                  <div className={styles.inputRow}>
+                    <Field as="select" name="areaCode" className={styles.input}>
+                      {MOBILE_AREA.map((val) => {
+                        return (
+                          <option key={`code-${val.country}`} value={val.code}>
+                            {/* <ReactCountryFlag
 													className="emojiFlag"
 													countryCode={val.country}
 													style={{
@@ -70,26 +74,29 @@ const Home: NextPage = () => {
 													}}
 													aria-label={val.country}
 												/> */}
-                          {val.code}
-                        </option>
-                      );
-                    })}
-                  </Field>
-                  <ErrorMessage
-                    name="areaCode"
-                    component="div"
-                    className={styles.errorMsg}
-                  />
-                  <Field
-                    type="tel"
-                    name="phoneNumber"
-                    className={styles.input}
-                  />
-                  <ErrorMessage
-                    name="phoneNumber"
-                    component="div"
-                    className={styles.errorMsg}
-                  />
+                            {val.code}
+                          </option>
+                        );
+                      })}
+                    </Field>
+                    <ErrorMessage
+                      name="areaCode"
+                      component="div"
+                      className={styles.errorMsg}
+                    />
+                    <Field
+                      type="tel"
+                      name="phoneNumber"
+                      className={styles.input}
+                      placeholder="Phone Number"
+                    />
+                    <ErrorMessage
+                      name="phoneNumber"
+                      component="div"
+                      className={styles.errorMsg}
+                    />
+                  </div>
+
                   <div className={styles.buttonContainer}>
                     <button
                       type="submit"

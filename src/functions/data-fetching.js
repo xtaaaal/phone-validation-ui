@@ -13,7 +13,6 @@ const sendRequest = async (options) => {
     const result = response.data;
     return { status: "success", result: result };
   } catch (error) {
-    // console.log("error", error);
     return { status: "error", error: error };
   }
 };
