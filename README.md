@@ -6,23 +6,23 @@ Phone validator web ui by Crystal Hon<br>
 
 ## Features
 
--   ⚡️[Next 13 with React 18](https://nextjs.org/docs/getting-started)
--   TypeScript
--   [Jest](https://jestjs.io/) - Not fully implemented
--   [Tailwind with JIT](https://tailwindcss.com/)
--   [Dark Mode](https://tailwindcss.com/docs/dark-mode) - Dark mode using TailwindCSS
--   [CSS Modules](https://github.com/css-modules/css-modules)
--   [Hero icons](https://heroicons.com/)
+- ⚡️[Next 13 with React 18](https://nextjs.org/docs/getting-started)
+- TypeScript
+- [Jest](https://jestjs.io/) - Not fully implemented
+- [Tailwind with JIT](https://tailwindcss.com/)
+- [Dark Mode](https://tailwindcss.com/docs/dark-mode) - Dark mode using TailwindCSS
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Hero icons](https://heroicons.com/)
 
 ### Coding Style
 
--   [ESLint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ### Dev tools
 
--   [TypeScript](https://www.typescriptlang.org/)
--   [Commit lint](https://github.com/conventional-changelog/commitlint)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Commit lint](https://github.com/conventional-changelog/commitlint)
 
 ### Development
 
