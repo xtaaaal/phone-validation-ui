@@ -8,6 +8,7 @@ const Input = ({
   label,
   placeHolder,
   inputValueType,
+  onBlur,
   required,
   ...rest
 }) => {
@@ -38,6 +39,7 @@ const Input = ({
           id={name}
           ref={inputRef}
           defaultValue={defaultValue}
+          onBlur={onBlur}
           {...rest}
         />
 

@@ -3,14 +3,17 @@ import React, { useEffect } from "react";
 import Layout from "@/components/structures/layout";
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
+import { AppWrapper } from "@/context/AppContext";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider attribute="class">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <AppWrapper>
+      <ThemeProvider attribute="class">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </AppWrapper>
   );
 };
 

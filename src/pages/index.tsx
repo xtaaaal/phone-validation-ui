@@ -9,6 +9,7 @@ import CustomSelect from "@/components/elements/customSelect";
 import Input from "@/components/elements/input";
 import styles from "./index.module.css";
 import config from "@/configs/index";
+import { useAppContext } from "@/context/AppContext";
 
 import * as yup from "yup";
 import {
@@ -34,6 +35,7 @@ const Home: NextPage = (
   const router = useRouter();
   const formData = formRef?.current?.getData();
   const { currentAreaCode } = props;
+  const [attemptsHistory, setAttemptsHistory] = useState([]);
 
   const areaCodeOptions = MOBILE_AREA.map((val) => {
     return {
@@ -42,9 +44,29 @@ const Home: NextPage = (
       country: val.country,
     };
   });
+
+  useEffect(() => {
+    let attempts;
+    if (typeof window !== "undefined") {
+      attempts = localStorage.getItem("attempts");
+      setAttemptsHistory(JSON.parse(attempts));
+    }
+  }, []);
+
   async function handleSubmit(data) {
     try {
       formRef.current.setErrors({});
+      if (typeof window !== "undefined") {
+        const currentStorage =
+          JSON.parse(localStorage.getItem("attempts")) || [];
+        const now = new Date();
+        const option = { timeZone: "Asia/Hong_Kong", hour12: false };
+        const nowString = now.toLocaleString("zh-HK", option);
+        localStorage.setItem(
+          "attempts",
+          JSON.stringify([...currentStorage, { ...data, time: nowString }])
+        );
+      }
 
       await validationSchema.validate(data, {
         abortEarly: false,
@@ -55,13 +77,16 @@ const Home: NextPage = (
     } catch (err) {
       const errors = {};
       if (err instanceof yup.ValidationError) {
-        // console.log(err.inner);
         err.inner.forEach((error) => {
           errors[error.path] = error.message;
         });
         formRef.current.setErrors(errors);
       }
     }
+  }
+
+  async function handleBlur() {
+    await handleGetAreaCode();
   }
 
   return (
@@ -113,6 +138,7 @@ const Home: NextPage = (
                     placeHolder="Phone Number"
                     name="phoneNumber"
                     inputValueType={"tel"}
+                    onBlur={() => setTimeout(handleBlur, 500)}
                     required={true}
                     onChange={() =>
                       formRef.current.setFieldError("phoneNumber", "")
