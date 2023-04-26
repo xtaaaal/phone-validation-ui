@@ -1,4 +1,5 @@
 import type { NextPage, InferGetStaticPropsType, GetStaticProps } from "next";
+import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import { Form } from "@unform/web";
@@ -30,9 +31,9 @@ const Home: NextPage = (
 ) => {
   const { MOBILE_AREA } = config;
   const formRef = useRef(null);
+  const router = useRouter();
   const formData = formRef?.current?.getData();
   const { currentAreaCode } = props;
-  console.log(currentAreaCode);
 
   const areaCodeOptions = MOBILE_AREA.map((val) => {
     return {
@@ -42,7 +43,6 @@ const Home: NextPage = (
     };
   });
   async function handleSubmit(data) {
-    console.log(data);
     try {
       formRef.current.setErrors({});
 
@@ -51,6 +51,7 @@ const Home: NextPage = (
       });
 
       await handleIsValidPhone(data);
+      router.push("/history");
     } catch (err) {
       const errors = {};
       if (err instanceof yup.ValidationError) {
@@ -129,7 +130,6 @@ const Home: NextPage = (
           </div>
         </div>
       </section>
-      <section className={styles.histories}></section>
     </>
   );
 };
