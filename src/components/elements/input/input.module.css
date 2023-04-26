@@ -1,0 +1,6 @@
+.errorsBorder {
+  border: 1px solid red;
+}
+.input {
+  @apply rounded-lg text-black;
+}

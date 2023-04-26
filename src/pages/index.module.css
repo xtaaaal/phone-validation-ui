@@ -30,6 +30,12 @@
 .kvImg {
   @apply w-full;
 }
+.inputRow {
+  @apply w-full flex justify-start;
+}
+.marginLeft {
+  @apply ml-2;
+}
 .input {
   @apply text-black rounded-lg mr-2;
 }

@@ -1,0 +1,6 @@
+.inputErrorWrapper {
+  @apply w-full text-red-700;
+}
+.InputErrorMsg {
+  @apply flex;
+}
