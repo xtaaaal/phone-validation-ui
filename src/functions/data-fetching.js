@@ -27,3 +27,10 @@ export async function handleIsValidPhone({ areaCode, phoneNumber }) {
   });
   return result;
 }
+
+export async function handleGetAreaCode() {
+  const result = await sendRequest({
+    endpoint: "/api/v1/get-current-area-code",
+  });
+  return result;
+}

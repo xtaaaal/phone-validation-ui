@@ -1,8 +1,7 @@
-import type { NextPage } from "next";
+import type { NextPage, InferGetStaticPropsType, GetStaticProps } from "next";
 import { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import { Form } from "@unform/web";
-import History, { HistoryProps } from "@/components/fragments/history";
 import Image from "next/image";
 import kvImg from "@/assets/images/verified-pana.png";
 import CustomSelect from "@/components/elements/customSelect";
@@ -11,7 +10,10 @@ import styles from "./index.module.css";
 import config from "@/configs/index";
 
 import * as yup from "yup";
-import { handleIsValidPhone } from "@/functions/data-fetching";
+import {
+  handleIsValidPhone,
+  handleGetAreaCode,
+} from "@/functions/data-fetching";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -23,10 +25,14 @@ const validationSchema = yup.object().shape({
     .matches(phoneRegExp, "Phone number is not valid"),
 });
 
-const Home: NextPage = () => {
+const Home: NextPage = (
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) => {
   const { MOBILE_AREA } = config;
   const formRef = useRef(null);
   const formData = formRef?.current?.getData();
+  const { currentAreaCode } = props;
+  console.log(currentAreaCode);
 
   const areaCodeOptions = MOBILE_AREA.map((val) => {
     return {
@@ -96,10 +102,7 @@ const Home: NextPage = () => {
                   name="areaCode"
                   options={areaCodeOptions}
                   isSearchable={true}
-                  defaultValue={{
-                    value: "+852",
-                    label: +"+852",
-                  }}
+                  defaultValue={currentAreaCode}
                   onChange={() => formRef.current.setFieldError("areaCode", "")}
                   id="areaCodeInput"
                 />
@@ -132,3 +135,16 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const currentAreaCode = await handleGetAreaCode();
+
+  return {
+    props: {
+      currentAreaCode: currentAreaCode.result || {
+        label: "+852",
+        value: "+852",
+      },
+    },
+  };
+};
